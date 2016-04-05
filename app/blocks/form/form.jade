@@ -1,0 +1,17 @@
+
+form.mfp-hide(id="form", action="mail.php", method="POST")
+	span.input-group
+		label.req First Name
+		input(type="text", name="first name", placeholder="", required="required")
+	span.input-group
+		label.req Last Name
+		input(type="text", name="last name", placeholder="", required)
+	label.req Email Address
+	input(type="email", name="email", placeholder="", required)
+	label Company or School
+	input(type="text", name="company", placeholder="")
+	label Title
+	input(type="text", name="title", placeholder="")
+	label Comments
+	textarea(name="", cols="30", rows="10")
+	input(type="submit", value="Submit")
