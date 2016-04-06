@@ -2,12 +2,12 @@
 	var app = {
 
 		init: function(){
-			this.setUpListeners();
 			this.popUp();
+			this.setUpListeners();
 		},
 
 		setUpListeners: function () {
-			
+			$('#form').on('submit', app.formSubmit);
 		},
 
 		popUp: function () {
@@ -16,20 +16,24 @@
 				midClick: true
 			});
 		},
-		ajaxSend: function () {
-			$('#form').on('submit', function(e){
+		formSubmit: function (e) {
 				e.preventDefault();
-				var method=$(this).attr('method');
-				var action=$(this).attr('action');
 				var data=$(this).serialize();
 				$.ajax({
-					type: method,
-					url: action,
+					type: "POST",
+					url: "contact_form/contact_process.php",
 					data: data
-				}).done(function(result){
-					$('#form').html(result);
+				}).done(function(msg){
+					if(msg == 'OK') {
+						var result = 'Your message has been sent. Thank you!';
+						$('#form').html(result);
+					} else {
+						var result = msg;
+						$('#note').html(result);
+					}
+				}).fail(function(){
+					console.log('ajax fail!');
 				})
-			});
 		}
 
 	}

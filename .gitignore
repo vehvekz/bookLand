@@ -1,6 +1,5 @@
 
 app/libs
-dist
 
 # Numerous always-ignore extensions
 *.bak

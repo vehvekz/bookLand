@@ -20,14 +20,16 @@ const path = {
 		scripts: 'app/scripts/app.js',
 		assets: ['app/assets/**/*.*', '!app/assets/{svg,img}/**/*.*'],
 		img: 'app/assets/img/**/*.*',
-		svg: 'app/assets/svg/**/*.svg'
+		svg: 'app/assets/svg/**/*.svg',
+		php: 'app/**/*.php'
 	},
 	dist: { 
 		html: 'dist',
 		styles: 'dist/assets/css/',
 		scripts: 'dist/assets/scripts/',
 		assets: 'app/assets/',
-		img: 'dist/assets/img'
+		img: 'dist/assets/img',
+		php: 'dist'
 	},
 	watch: { 
 		html: 'app/**/*.jade',
@@ -35,7 +37,8 @@ const path = {
 		scripts: 'app/scripts/**/*.js',
 		assets: ['app/assets/**/*.*', '!app/assets/{svg,img}/*.*'],
 		img: 'app/assets/img/**/*.*',
-		svg: 'app/assets/svg/**/*.svg'
+		svg: 'app/assets/svg/**/*.svg',
+		php: 'app/**/*.php'
 	},
 	sass: [
 		'app/libs/foundation-sites/scss'
@@ -140,6 +143,12 @@ gulp.task('svg', function(){
 		.pipe(gulp.dest(path.dist.img));
 });
 
+gulp.task('php', function(){
+	return gulp.src(path.app.php)
+		.pipe($.debug({title: 'assets'}))
+		.pipe(gulp.dest(path.dist.php));
+});
+
 gulp.task('clean', function(){
 	return $.del('dist');
 });
@@ -161,10 +170,13 @@ gulp.task('watch', function(){
 	gulp.watch(path.watch.svg, gulp.series('svg'));
 	gulp.watch(path.watch.img, gulp.series('image'));
 	gulp.watch(path.watch.assets, gulp.series('assets'));
+	gulp.watch(path.watch.php, gulp.series('php'));
 });
 
 
-gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'html', 'scripts', 'svg', 'image', 'assets')));
+gulp.task('build', gulp.parallel('styles', 'html', 'scripts', 'svg', 'image', 'assets', 'php'));
+
+// gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'html', 'scripts', 'svg', 'image', 'assets')));
 
 gulp.task('default', gulp.series('build', gulp.parallel('watch', 'server')));
 
