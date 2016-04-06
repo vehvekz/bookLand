@@ -173,10 +173,7 @@ gulp.task('watch', function(){
 	gulp.watch(path.watch.php, gulp.series('php'));
 });
 
-
-gulp.task('build', gulp.parallel('styles', 'html', 'scripts', 'svg', 'image', 'assets', 'php'));
-
-// gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'html', 'scripts', 'svg', 'image', 'assets')));
+gulp.task('build', gulp.series('clean', gulp.parallel('styles', 'html', 'scripts', 'svg', 'image', 'assets', 'php')));
 
 gulp.task('default', gulp.series('build', gulp.parallel('watch', 'server')));
 
