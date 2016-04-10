@@ -5,24 +5,32 @@
 		width: 1600px
 	.container
 		width: 1403px
+	.landing-content
+		font-size: 25px
 @media only screen and (max-width : 1650px)
 	.wrapper
 		font-size: 26px
 		width: 1350px
 	.container
 		width: 1140px
+	.landing-content
+		font-size: 22px
 @media only screen and (max-width : 1500px)
 	.wrapper
 		font-size: 23px
 		width: 1200px
 	.container
 		width: 991px
-@media only screen and (max-width : 1350px)
+	.landing-content
+		font-size: 21px
+@media only screen and (max-width : 1367px)
 	.wrapper
 		font-size: 21px
 		width: 1100px
 	.container
 		width: 920px
+	.landing-content
+		font-size: 18px
 @media only screen and (max-width : 1200px)
 	.wrapper
 		font-size: 18px
@@ -36,19 +44,9 @@
 		width: 100%
 	.container
 		width: 80%
-	.landing-content
-		font-size: 20px
 @media only screen and (max-width : 1050px)
 	.container
 		width: 90%
-
-@media only screen and (max-width : 780px) and (orientation: landscape)
-	.content
-		height: auto
-		padding-bottom: 0
-		background: url('../img/content-bg.jpg') no-repeat center
-	.footer
-		margin-top: 0
 
 @media only screen and (max-width : 770px)
 	.wrapper
@@ -61,18 +59,24 @@
 		background: url('../img/content-bg-mobile.jpg') no-repeat bottom
 		background-size: cover
 
-@media only screen and (max-height : 775px) and (min-height: 500px) and (orientation: portrait)
-	.landing-content
-		padding-top: 5em
 @media only screen and (max-height : 770px) and (orientation: portrait)
 	form
 		font-size: 13px
 
+@media only screen and (max-width : 740px) and (orientation: landscape)
+	.content
+		height: auto
+		padding-bottom: 0
+	.footer
+		margin-top: 0
+
 @media only screen and (max-width : 660px)
 	.wrapper
-		font-size: 14px
+		font-size: 13px
 	.header
 		text-align: center
+	.landing-content
+		font-size: 18px
 	.footer
 		text-align: center
 	.footer-link
@@ -107,7 +111,12 @@
 			margin: 0 2em
 	.landing-content
 		font-size: 14px
+@media only screen and (max-width : 440px) and (orientation: portrait)
+	.landing-content
+		padding-top: 3em
 
 @media only screen and (max-width : 320px) and (orientation: portrait)
 	form
 		font-size: 10px
+
+

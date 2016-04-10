@@ -8,8 +8,6 @@
 	text-align: center
 	width: 22em
 
-.join-wrap
-
 .join
 	text-transform: uppercase
 	border-top: 2px solid $green
@@ -32,8 +30,11 @@
 	padding: 1em 4.4em
 	font-size: 0.9em
 	background-color: $red
+	transition: background 0.3s
 	b
 		font-weight: 800
+	&:hover
+		background-color: $green
 
 .title
 	text-transform: uppercase
@@ -46,7 +47,7 @@
 	line-height: 1.2em
 
 .social-wrap
-	margin-top: 2.5em
+	margin-top: 2.1em
 .social-item
 	display: inline-block
 	margin-right: 0.2em
@@ -54,7 +55,11 @@
 	cursor: pointer
 	svg
 		fill: $green
-		font-size: 1.9em
+		font-size: 2em
+		transition: all 0.2s
+	&:hover
+		svg
+			fill: $grey
 
 
 

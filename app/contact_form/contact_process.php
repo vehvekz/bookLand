@@ -14,7 +14,23 @@ $name = $_POST['first-name'];
 $last_name = $_POST['last-name'];
 $email = trim($_POST['email']);
 $subject = (!empty($_POST['title'])) ? substr($_POST['title']) : 'Webinar - time to know';
-$message = (!empty($_POST['comments'])) ? substr($_POST['comments']) : 'I want subscribe on webinar';
+$company = (!empty($_POST['company'])) ? $_POST['company'] : '';
+$comments = (!empty($_POST['comments'])) ? $_POST['comments'] : '';
+
+$message = sprintf('
+    First name: %s
+    Last name: %s
+    Email: %s
+    Company: %s
+    Title: %s
+    Comments: %s',
+    $name,
+    $last_name,
+    $email,
+    $company,
+    $subject,
+    $comments
+);
 
 $error = '';
 
